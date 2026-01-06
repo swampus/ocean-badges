@@ -27,19 +27,10 @@ export async function GET(
   const raw = await redis.get(`result:${params.id}`);
   if (!raw) return new NextResponse("Not found", { status: 404 });
 
- if (typeof raw !== "string") {
-   return new NextResponse("Not found", { status: 404 });
- }
-
-     const data = JSON.parse(raw) as {
-       traits: {
-         O: { percent: number };
-         C: { percent: number };
-         E: { percent: number };
-         A: { percent: number };
-         N: { percent: number };
-       };
-     };
+    const data =
+      typeof raw === "string"
+        ? JSON.parse(raw)
+        : raw;
 
 
      const O = Math.round(data.traits.O.percent);
