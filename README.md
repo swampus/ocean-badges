@@ -1,6 +1,8 @@
-<p align="center">
+<p>
   <img src="web/public/images/bigfivelogo.png" alt="OCEAN Badges logo" width="300" />
 </p>
+
+**Live demo:** https://ocean-badges.vercel.app
 
 # OCEAN Badges
 
