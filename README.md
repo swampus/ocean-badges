@@ -179,7 +179,7 @@ depending on Redis setup. It is not guaranteed to work out of the box.
 
 This project is a fork of:
 
-- **bigfive-web** — https://github.com/alheimsins/bigfive-web
+- **bigfive-web** — https://github.com/rubynor/bigfive-web
 
 Based on:
 
