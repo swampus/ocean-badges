@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getRedis } from "@/lib/redis";
+import { redis } from "@/lib/redis";
 import { calculateBigFiveProfile } from "@/lib/bigfive";
 import { BIGFIVE_ITEMS_META } from "@/lib/bigfive/items";
 
@@ -19,20 +19,17 @@ export async function POST(req: Request) {
       value: a.score
     }));
 
-
-   const profile = calculateBigFiveProfile(
-    bigFiveAnswers,
-    BIGFIVE_ITEMS_META);
+    const profile = calculateBigFiveProfile(
+      bigFiveAnswers,
+      BIGFIVE_ITEMS_META
+    );
 
     const id = crypto.randomUUID();
-
-    const redis = getRedis();
 
     await redis.set(
       `result:${id}`,
       JSON.stringify(profile),
-      "EX",
-      60 * 60 * 24 * 30
+      { ex: 60 * 60 * 24 * 30 } // 30 days TTL (Upstash format)
     );
 
     return NextResponse.json({ id });

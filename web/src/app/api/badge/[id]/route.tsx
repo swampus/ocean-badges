@@ -27,7 +27,7 @@ export async function GET(
   const raw = await redis.get(`result:${params.id}`);
   if (!raw) return new NextResponse("Not found", { status: 404 });
 
-  const data = JSON.parse(raw);
+  const data = raw;
 
   const O = Math.round(data.traits.O.percent);
   const C = Math.round(data.traits.C.percent);
@@ -46,8 +46,8 @@ export async function GET(
   const svg = `
 <svg
   width="340"
-  height="390"
-  viewBox="60 40 340 390"
+  height="360"
+  viewBox="60 40 340 360"
   xmlns="http://www.w3.org/2000/svg"
   role="img"
 >

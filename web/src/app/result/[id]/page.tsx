@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { getRedis } from "@/lib/redis";
+import { redis } from "@/lib/redis";
 import { interpretTrait } from "@/lib/interpretOcean";
 import { TraitCard } from "@/components/TraitCard";
 import { OceanTrait } from "@/types/ocean";
@@ -15,7 +15,6 @@ export default async function ResultPage({
 }: {
   params: { id: string };
 }) {
-  const redis = getRedis();
   const raw = await redis.get(`result:${params.id}`);
 
   if (!raw) {
@@ -26,7 +25,7 @@ export default async function ResultPage({
     );
   }
 
-  const profile = JSON.parse(raw);
+  const profile = raw;
 
   const traits: Record<OceanTrait, number> = {
     openness: profile.traits.O.percent,
@@ -79,17 +78,18 @@ export default async function ResultPage({
         <Navbar />
         <GetBadgeCTA resultId={params.id} />
 
-     {/* RESULTS */}
-     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch">
-       {interpreted.map(t => (
-         <TraitCard
-           key={t.trait}
-           trait={t.trait}
-           value={t.value}
-           interpretation={t.interpretation}
-         />
-       ))}
-     </div>
+        {/* RESULTS */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch">
+          {interpreted.map(t => (
+            <TraitCard
+              key={t.trait}
+              trait={t.trait}
+              value={t.value}
+              interpretation={t.interpretation}
+            />
+          ))}
+        </div>
+
       </div>
     </div>
   );
