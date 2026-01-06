@@ -35,7 +35,7 @@ export default async function ResultPage({
     );
   }
 
-  const profile = JSON.parse(String(raw)) as StoredProfile;
+  const profile = raw as StoredProfile;
 
   const traits: Record<OceanTrait, number> = {
     openness: profile.traits.O.percent,
