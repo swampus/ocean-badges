@@ -1,20 +1,40 @@
-<p>
-  <img src="/web/public/images/bigfivelogo.png" alt="OCEAN Badges logo" width="360" />
+<p align="center">
+  <img src="web/public/images/bigfivelogo.png" alt="OCEAN Badges logo" width="300" />
 </p>
 
 # OCEAN Badges
 
 Visual personality badges based on the Big Five (OCEAN) model.
 
-This project is a **fork and extension** of the original **bigfive-web** project, focused on transforming Big Five test results into clean, shareable visual artifacts (SVG / PNG badges).
+This project is a **fork and extension** of the original **bigfive-web** project,
+focused on transforming Big Five test results into clean, shareable visual artifacts
+(SVG / PNG badges).
+
+---
+
+## Table of Contents
+
+- [What is this?](#what-is-this)
+- [Why badges?](#why-badges)
+- [Social & research context](#social--research-context)
+- [Privacy & data handling](#privacy--data-handling)
+- [Ethical note (intended use)](#ethical-note-intended-use)
+- [Technical overview](#technical-overview)
+- [Who might find this useful?](#who-might-find-this-useful)
+- [AI agents & human interaction (future direction)](#ai-agents--human-interaction-future-direction)
+- [How to run (Docker)](#how-to-run-docker)
+- [Origin & attribution](#origin--attribution)
+- [License](#license)
 
 ---
 
 ## What is this?
 
-OCEAN Badges is a small web service that generates **visual personality badges** based on Big Five test results.
+OCEAN Badges is a small web service that generates **visual personality badges**
+based on Big Five test results.
 
-The goal is not diagnosis or evaluation, but **visual reflection** — a compact, human-readable way to express personality tendencies and start conversations.
+The goal is not diagnosis or evaluation, but **visual reflection** —
+a compact, human-readable way to express personality tendencies and start conversations.
 
 Badges are designed to be:
 
@@ -35,7 +55,8 @@ A visual badge:
 - helps people explain themselves without oversharing
 - acts as a *conversation interface*, not a label
 
-This project explores how **visual abstraction** can improve human-to-human and human-to-system interaction.
+This project explores how **visual abstraction** can improve
+human-to-human and human-to-system interaction.
 
 ---
 
@@ -43,7 +64,8 @@ This project explores how **visual abstraction** can improve human-to-human and 
 
 This project can be seen as a **social visualization experiment**.
 
-One possible future direction is the use of lightweight personality signals in **hybrid systems**, where humans and AI agents interact as peers:
+One possible future direction is the use of lightweight personality signals
+in **hybrid systems**, where humans and AI agents interact as peers:
 
 - humans as agents
 - AI systems as agents
@@ -65,7 +87,8 @@ This project is designed with **privacy by default**:
 - No tracking or profiling
 - Badge IDs are random and anonymous
 
-The service does **not store or infer personal data** beyond the minimal information required to render a badge.
+The service does **not store or infer personal data**
+beyond the minimal information required to render a badge.
 
 ---
 
@@ -99,18 +122,78 @@ This is a statement of intent, not a legal restriction.
 
 ---
 
+## Who might find this useful?
+
+- **Teams (especially remote ones)**  
+  A lightweight way to understand communication styles without long
+  “tell me about yourself” calls or documents.
+
+- **Gamification enthusiasts**  
+  Turning personality traits into “stats” of a character is a well-known and
+  effective way to increase engagement and self-reflection.
+
+- **Interface & UX researchers**  
+  An experiment in how complex psychological information can be represented
+  in a compact, visual, and shareable form.
+
+---
+
+## AI agents & human interaction (future direction)
+
+In future hybrid systems, where humans and AI systems interact as peers,
+AI agents may benefit from lightweight, voluntary personality signals.
+
+Not as identifiers or profiles, but as **interaction metadata** —
+contextual hints about communication style, preferences, and tendencies.
+
+OCEAN Badges explore one possible form of such metadata:
+compact, visual, non-authoritative, and explicitly non-diagnostic.
+
+The goal is not classification of people,
+but reduction of friction in human–AI and human–human interaction.
+
+---
+
+## How to run (Docker)
+
+The application lives in the `web/` directory.
+
+### Prerequisites
+
+- Docker
+- Docker Compose
+
+### Run locally
+
+```bash
+cd web
+docker compose up --build
+```
+
+After startup, the application will be available at:
+
+```
+http://localhost:3000
+```
+
+Environment variables (Redis, etc.) are configured via `docker-compose.yml`.
+
+---
+
 ## Origin & attribution
 
 This project is a fork of:
 
-- **bigfive-web** (upstream): https://github.com/alheimsins/bigfive-web
+- **bigfive-web** (upstream):  
+  https://github.com/alheimsins/bigfive-web
 
 The upstream project is based on:
 
 - IPIP-NEO-PI: https://github.com/kholia/IPIP-NEO-PI
 - Item/test data from: http://ipip.ori.org
 
-This fork focuses specifically on **visualization and sharing**, which was not the original goal of the upstream project.
+This fork focuses specifically on **visualization and sharing**,
+which was not the original goal of the upstream project.
 
 ---
 
