@@ -10,6 +10,16 @@ import { GetBadgeCTA } from "@/components/GetBadgeCTA";
 
 export const dynamic = "force-dynamic";
 
+type StoredProfile = {
+  traits: {
+    O: { percent: number };
+    C: { percent: number };
+    E: { percent: number };
+    A: { percent: number };
+    N: { percent: number };
+  };
+};
+
 export default async function ResultPage({
   params
 }: {
@@ -25,7 +35,7 @@ export default async function ResultPage({
     );
   }
 
-  const profile = raw;
+  const profile = JSON.parse(raw) as StoredProfile;
 
   const traits: Record<OceanTrait, number> = {
     openness: profile.traits.O.percent,
