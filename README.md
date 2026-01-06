@@ -116,11 +116,16 @@ This is a statement of intent, not a legal restriction.
 
 ## AI agents & human interaction (future direction)
 
-In future hybrid systems, humans and AI agents may benefit from
-lightweight, voluntary personality metadata.
+In future hybrid systems, where humans and AI agents interact as peers,
+lightweight and voluntary personality signals may serve as interaction context
+rather than identity or evaluation.
 
-OCEAN Badges explore one such representation:
-visual, non-authoritative, and explicitly non-diagnostic.
+Such metadata is not meant to describe a person exhaustively,
+but to reduce ambiguity in communication, preference alignment,
+and cooperative behavior between heterogeneous agents.
+
+OCEAN Badges explore one possible representation:
+compact, visual, non-authoritative, and explicitly non-diagnostic.
 
 ---
 

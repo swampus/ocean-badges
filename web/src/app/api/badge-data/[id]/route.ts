@@ -12,12 +12,6 @@ export async function GET(
     return new NextResponse("Not found", { status: 404 });
   }
 
-  const raw = await redis.get(`result:${params.id}`);
-
-  if (!raw) {
-    return new NextResponse("Not found", { status: 404 });
-  }
-
   const data = raw;
 
   const O = Math.round(data.traits.O.percent);
