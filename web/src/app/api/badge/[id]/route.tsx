@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { redis } from "@/lib/redis";
+import { Ratelimit } from "@upstash/ratelimit";
 
 export const runtime = "nodejs";
 
@@ -146,7 +147,7 @@ export async function GET(
   return new NextResponse(svg, {
     headers: {
       "Content-Type": "image/svg+xml",
-      "Cache-Control": "public, max-age=86400",
+      "Cache-Control": "public, max-age=86400, immutable",
     },
   });
 }
